@@ -1,0 +1,200 @@
+:root {
+  --rojo: #cf2335;
+  --azul: #124eb5;
+  --blanco: #ffffff;
+  --texto: #17345f;
+  --secundario: #526580;
+  --borde: #dce6f5;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 40px 20px;
+  background:
+    radial-gradient(circle at 12% 18%, #ffffff80 0 34px, transparent 35px),
+    radial-gradient(circle at 88% 72%, #ffffff70 0 60px, transparent 61px),
+    radial-gradient(circle at 8% 85%, #ffffff60 0 18px, transparent 19px),
+    radial-gradient(circle at 92% 12%, #ffffff90 0 22px, transparent 23px),
+    linear-gradient(150deg, #b5dbff, #d8edff 55%, #a9d1f7);
+  color: var(--texto);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+  position: relative;
+  isolation: isolate;
+}
+
+/* Nubes decorativas hechas con CSS. */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  width: 190px;
+  height: 95px;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 30% 68%, #ffffffb3 0 29%, transparent 30%),
+    radial-gradient(ellipse at 52% 45%, #ffffffb3 0 35%, transparent 36%),
+    radial-gradient(ellipse at 76% 70%, #ffffffb3 0 27%, transparent 28%);
+}
+
+body::before { top: 12%; left: 3%; }
+body::after { bottom: 10%; right: 3%; transform: scale(.8); }
+
+.lema {
+  margin: 18px 0 0;
+  color: var(--texto);
+  font-size: clamp(1.1rem, 4vw, 1.35rem);
+  font-weight: 600;
+  line-height: 1.5;
+  text-wrap: balance;
+}
+
+main {
+  width: 100%;
+  max-width: 1100px;
+  padding: clamp(24px, 6vw, 48px);
+  text-align: center;
+  background: linear-gradient(180deg, #e5f2ff, #f3f9ff);
+  border: 1px solid var(--borde);
+  border-top: 6px solid var(--rojo);
+  border-radius: 36px;
+  box-shadow: 0 20px 60px rgb(18 78 181 / 10%);
+}
+
+.logo {
+  display: block;
+  width: clamp(200px, 52vw, 380px);
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+
+.etiqueta {
+  margin: 0 0 12px;
+  color: var(--rojo);
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  color: var(--azul);
+  font-size: clamp(2rem, 7vw, 3rem);
+  line-height: 1.15;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+
+.descripcion {
+  max-width: 470px;
+  margin: 22px auto;
+  color: var(--secundario);
+  font-size: 1.05rem;
+  padding: 20px;
+  border-radius: 22px;
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+}
+
+.productos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 0 30px;
+  padding: 0;
+  list-style: none;
+}
+
+.productos li {
+  padding: 7px 14px;
+  border: 1px solid var(--borde);
+  border-radius: 999px;
+  background: var(--blanco);
+  color: var(--azul);
+  font-size: .85rem;
+  font-weight: 600;
+}
+
+.productos li:first-child {
+  background: #ffe9ed;
+  border-color: #f6bdc6;
+  color: #b51d30;
+}
+
+.contacto { display: grid; gap: 12px; }
+
+.boton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding: 14px 20px;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.whatsapp { background: #25d366; color: #083b1b; }
+.whatsapp-alternativo { background: #f3fff7; border-color: #168544; color: #116b36; }
+.whatsapp-alternativo:hover { background: #dcf8e6; color: #0b5429; }
+.facebook { background: #1877f2; color: #ffffff; }
+.whatsapp:hover { background: #20bd5a; color: #083b1b; }
+.facebook:hover { background: #0866d9; color: #ffffff; }
+
+.boton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgb(18 78 181 / 18%);
+}
+
+.boton:focus-visible {
+  outline: 3px solid var(--azul);
+  outline-offset: 4px;
+}
+
+.ubicacion {
+  margin: 12px 0 0;
+  color: var(--azul);
+  font-size: .9rem;
+  font-weight: 600;
+}
+
+.nota { margin: 18px 0 0; color: var(--secundario); font-size: .85rem; }
+
+footer {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--borde);
+  color: var(--secundario);
+  font-size: .8rem;
+}
+
+@media (min-width: 992px) {
+  main { text-align: left; }
+  .descripcion { max-width: none; }
+  .productos { justify-content: flex-start; }
+  footer { text-align: center; }
+}
+
+@media (max-width: 400px) {
+  body { padding: 16px 12px; }
+  main { padding: 24px 18px; border-radius: 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boton { transition: none; }
+  .boton:hover { transform: none; }
+}
